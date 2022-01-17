@@ -1,28 +1,9 @@
 <?php
 require_once __DIR__ . "/database.php";
-
-class Movie{
-  public $title;
-  public $genre;
-  public $year;
-  public $vote;
-
-  function __construct($_title)
-  {
-    $this->title = $_title;
-  }
-
-  public function getVote()
-  {
-    $valutation = 'good';
-    if ($this->vote < 5) $valutation = 'low';
-    else if ($this->vote < 7) $valutation = 'medium';
-    return $valutation;
-  }
-}
-
+require_once __DIR__ . "/movie.php";
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -78,16 +59,16 @@ class Movie{
     $new_movie->year = $movie['year'];
     $new_movie->vote = $movie['vote'];
   ?>
-  <div>
-  <h1>Titolo:</h1>
-  <h3><?php echo $new_movie->title ?></h3>
-  <h1>Genere:</h1>
-  <h3><?php echo $new_movie->genre ?></h3>
-  <h1>Anno:</h1>
-  <h3><?php echo $new_movie->year ?></h3>
-  <h1>Voto:</h1>
-  <h3><?php echo $new_movie->getVote() ?></h3>
-  </div>
+    <div>
+      <h1>Titolo:</h1>
+      <h3><?php echo $new_movie->title ?></h3>
+      <h1>Genere:</h1>
+      <h3><?php echo $new_movie->genre ?></h3>
+      <h1>Anno:</h1>
+      <h3><?php echo $new_movie->year ?></h3>
+      <h1>Voto:</h1>
+      <h3><?php echo $new_movie->getVote() ?></h3>
+    </div>
   <?php endforeach; ?>
 </body>
 
